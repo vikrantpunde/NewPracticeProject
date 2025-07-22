@@ -108,7 +108,7 @@ public class LoginTest{
 		*/
 		//Get Data from excel
 		ReadExcel excel=new ReadExcel();
-		
+		//ReadExcel excel=new ReadExcel();
 		String[][] inv= excel.readExcel("LoginTest");
 		return inv;
 	}
