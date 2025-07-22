@@ -74,6 +74,18 @@ public class LoginTest{
 		Assert.assertEquals(txt, "User is not valid");
 	}
 	
+	@Test(dataProvider = "invalidLogin",priority=1)
+	public void invalidLoginVerify22(String user,String pass) {
+		wait.until(ExpectedConditions.visibilityOf(lpg.password));
+		lpg.username.sendKeys(user);
+		lpg.password.sendKeys(pass);
+		lpg.submitBtn.click();
+		wait.until(ExpectedConditions.alertIsPresent());
+		String txt=driver.switchTo().alert().getText();
+		driver.switchTo().alert().accept();
+		Assert.assertEquals(txt, "User is not valid");
+	}
+	
 	@AfterMethod
 	public void attachScreenshot(ITestResult result) throws Exception {
 		String ssPath= "data:image/png;base64,"+((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
