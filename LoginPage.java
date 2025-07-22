@@ -19,10 +19,16 @@ public @FindBy(name="password") WebElement password;
 public @FindBy(xpath="//input[@type='submit']") WebElement submitBtn;
 public @FindBy(xpath="//input[@type='reset']") WebElement resetBtn;
 public @FindBy(xpath="//tr/td[1]") List<WebElement> labels;
-
-
-
+///////
+///////
 public LoginPage(WebDriver driver){
+	this.driver=driver;
+	PageFactory.initElements(driver, this);
+	this.wait = new WebDriverWait(driver, Duration.ofMillis(10000));
+	hp=PageFactory.initElements(this.driver, HomePage.class);
+}
+
+public LoginPage2(WebDriver driver){
 	this.driver=driver;
 	PageFactory.initElements(driver, this);
 	this.wait = new WebDriverWait(driver, Duration.ofMillis(10000));
