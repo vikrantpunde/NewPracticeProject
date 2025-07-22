@@ -29,6 +29,13 @@ public LoginPage(WebDriver driver){
 	hp=PageFactory.initElements(this.driver, HomePage.class);
 }
 
+public LoginPage2(WebDriver driver){
+	this.driver=driver;
+	PageFactory.initElements(driver, this);
+	this.wait = new WebDriverWait(driver, Duration.ofMillis(10000));
+	hp=PageFactory.initElements(this.driver, HomePage.class);
+}
+
 public void doSuccessfulLogin() {
 	try {
 		wait.until(ExpectedConditions.visibilityOf(password));
